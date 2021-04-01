@@ -1,7 +1,13 @@
 /* eslint-disable no-unused-vars */
 
 import React, {useState, useEffect} from 'react';
-import {FormControl, MenuItem, Select, Card, CardContent} from '@material-ui/core';
+import {
+  FormControl,
+  MenuItem,
+  Select,
+  Card,
+  CardContent,
+} from '@material-ui/core';
 import './App.css';
 import InfoBox from './components/InfoBox';
 import Map from './components/Map';
@@ -47,8 +53,8 @@ function App () {
       </div>
       <Card className="app__right">
         <CardContent>
-                <h3>Live Cases by Country</h3>
-                <h3>Worldwide new cases</h3>
+          <h3>Live Cases by Country</h3>
+          <h3>Worldwide new cases</h3>
         </CardContent>
       </Card>
     </div>

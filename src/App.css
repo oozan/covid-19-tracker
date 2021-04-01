@@ -6,6 +6,12 @@ body {
   background-color: #f6f6fd;
 }
 
+
+.app {
+  display: flex;
+  justify-content: space-between;
+}
+
 .app__header {
   display: flex;
   align-items: center;
