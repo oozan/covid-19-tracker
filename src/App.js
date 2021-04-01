@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 import React, {useState, useEffect} from 'react';
-import {FormControl, MenuItem, Select} from '@material-ui/core';
+import {FormControl, MenuItem, Select, Card, CardContent} from '@material-ui/core';
 import './App.css';
 import InfoBox from './components/InfoBox';
 import Map from './components/Map';
@@ -26,30 +26,32 @@ function App () {
   }, []);
   return (
     <div className="app">
-      <div className="app__left"><div className="app__header">
-        <h1>covid 19 tracker</h1>
-        <FormControl className="app__dropdown">
-          <Select variant="outlined" value={country}>
-            <MenuItem value="worldwide">Worldwide</MenuItem>
-            {countries.map (country => (
-              <MenuItem value={country.value}>{country.name}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+      <div className="app__left">
+        <div className="app__header">
+          <h1>covid 19 tracker</h1>
+          <FormControl className="app__dropdown">
+            <Select variant="outlined" value={country}>
+              <MenuItem value="worldwide">Worldwide</MenuItem>
+              {countries.map (country => (
+                <MenuItem value={country.value}>{country.name}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
+        <div className="app__stats">
+          <InfoBox title="Coronavirus Cases" />
+          <InfoBox title="Recovered" />
+          <InfoBox title="Deaths" />
+        </div>
+        <Map />
       </div>
-      <div className="app__stats">
-        <InfoBox title="Coronavirus Cases"/>
-        <InfoBox title="Recovered"/>
-        <InfoBox title="Deaths"/>
-      </div>
-
-      {/* Table */}
-      {/* Graph */}
-
-      <Map />
+      <Card className="app__right">
+        <CardContent>
+                <h3>Live Cases by Country</h3>
+                <h3>Worldwide new cases</h3>
+        </CardContent>
+      </Card>
     </div>
-    </div>
-      
   );
 }
 
