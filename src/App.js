@@ -26,7 +26,7 @@ function App () {
   }, []);
   return (
     <div className="app">
-      <div className="app__header">
+      <div className="app__left"><div className="app__header">
         <h1>covid 19 tracker</h1>
         <FormControl className="app__dropdown">
           <Select variant="outlined" value={country}>
@@ -48,6 +48,8 @@ function App () {
 
       <Map />
     </div>
+    </div>
+      
   );
 }
 
