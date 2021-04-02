@@ -14,7 +14,8 @@ import Map from './components/Map';
 
 function App () {
   const [countries, setCountries] = useState ([]);
-  const {country, setCountry} = useState ('');
+  const [country, setCountry] = useState ('worldwide');
+  const [countryInfo, setCountryInfo] = useState ({});
 
   useEffect (() => {
     const getCountriesData = async () => {
@@ -30,13 +31,31 @@ function App () {
     };
     getCountriesData ();
   }, []);
+
+  const onCountryChange = async event => {
+    const countryCode = event.target.value;
+    setCountry (countryCode);
+
+    const url = countryCode === 'worldwide'
+      ? 'https://disease.sh/v3/covid-19/all'
+      : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+
+    await fetch (url).then (response => response.json ()).then (data => {
+      setCountry (countryCode);
+      setCountryInfo (data);
+    });
+  };
   return (
     <div className="app">
       <div className="app__left">
         <div className="app__header">
           <h1>covid 19 tracker</h1>
           <FormControl className="app__dropdown">
-            <Select variant="outlined" value={country}>
+            <Select
+              variant="outlined"
+              value={country}
+              onChange={onCountryChange}
+            >
               <MenuItem value="worldwide">Worldwide</MenuItem>
               {countries.map (country => (
                 <MenuItem value={country.value}>{country.name}</MenuItem>
