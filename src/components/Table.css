@@ -1,0 +1,10 @@
+.table {
+    margin-top: 20px;
+    overflow-y: scroll;
+    height: 405px;
+    color: #887f7f;
+}
+
+.table tr:nth-of-type(even) {
+    background-color: #eeecec;
+}
