@@ -5,6 +5,15 @@
     color: #887f7f;
 }
 
+.table tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table td {
+    padding: 0.5rem;
+}
+
 .table tr:nth-of-type(even) {
     background-color: #eeecec;
 }
