@@ -13,6 +13,7 @@ import InfoBox from './components/InfoBox';
 import Map from './components/Map';
 import Table from './components/Table';
 import { sortData } from './util';
+import LineGraph from './components/LineGraph';
 
 function App () {
   const [countries, setCountries] = useState ([]);
