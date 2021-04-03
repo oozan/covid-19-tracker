@@ -28,7 +28,8 @@ function LineGraph () {
     fetch ('https://disease.sh/v3/covid-19/historical/all?lastdays=120')
       .then (response => response.json ())
       .then (data => {
-        console.log ('DATA IS HERE -->', data);
+        const chartData = buildChartData(data);
+        setData(chartData);
       });
   }, []);
 
