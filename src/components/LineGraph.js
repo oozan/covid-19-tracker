@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, {useState, useEffect} from 'react';
-//import { Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 function LineGraph () {
   const [data, setData] = useState ({});
@@ -36,6 +36,13 @@ function LineGraph () {
   return (
     <div>
       <h1>////GRAPH\\\\\</h1>
+      <Line data={{
+        datasets: [{
+          backgroundColor: 'rgba(247, 4, 129, 1)',
+          borderColor: '#DDA6C2',
+          data: data
+        }]
+      }} />
     </div>
   );
 }
